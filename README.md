@@ -9,14 +9,48 @@ This project provides a FastAPI-based API for face verification using [DeepFace]
 
 ## Setup
 
-1. Install dependencies:
+### Prerequisites
+- Python 3.11 (required for TensorFlow compatibility)
+- Conda (recommended for environment management)
+
+### Installation
+
+1. **Create a conda environment with Python 3.11:**
    ```bash
+   conda create -n deepface python=3.11 -y
+   conda activate deepface
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   # Use the environment's pip to ensure correct package installation
    pip install -r requirements.txt
    ```
-2. Run the API:
+
+3. **Run the API:**
    ```bash
-   uvicorn main:app --reload
+   uvicorn main:app --host 0.0.0.0 --port 8000 --reload
    ```
+
+4. **Access the API:**
+   - Open your browser to `http://localhost:8000`
+   - Interactive API documentation: `http://localhost:8000/docs`
+
+### Troubleshooting
+
+If you encounter dependency conflicts:
+- Make sure you're using Python 3.11 (TensorFlow doesn't support Python 3.13 yet)
+- Use a clean conda environment
+- Install TensorFlow first if needed: `pip install tensorflow`
+
+### Testing
+
+Run the included test script to verify everything is working:
+```bash
+python test_api.py
+```
+
+This will test all endpoints and confirm the API is functioning correctly.
 
 ## API Endpoints
 
@@ -49,4 +83,4 @@ This project provides a FastAPI-based API for face verification using [DeepFace]
 
 ## References
 - [DeepFace GitHub](https://github.com/serengil/deepface)
-- [FAISS](https://github.com/facebookresearch/faiss) 
+- [FAISS](https://github.com/facebookresearch/faiss)
